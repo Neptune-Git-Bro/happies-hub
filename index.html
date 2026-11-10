@@ -2,366 +2,478 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happies Aesthetic Hub | Look Good, Feel Good, Shop Happy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happies Aesthetic Hub | Fashion • Beauty • Lifestyle</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #070709;
+      --card-bg: rgba(20, 20, 26, 0.75);
+      --card-border: rgba(244, 114, 182, 0.18);
+      --pink: #f472b6;
+      --pink-glow: rgba(244, 114, 182, 0.35);
+      --rose: #fb7185;
+      --text-muted: #9ca3af;
+      --text-light: #f3f4f6;
+      --green: #22c55e;
+      --green-glow: rgba(34, 197, 94, 0.3);
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
+
     body {
+      background-color: var(--bg);
+      color: var(--text-light);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #0b0c10;
+      line-height: 1.5;
+      padding-bottom: 96px;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background gradient effect */
+    .ambient-glow {
+      position: fixed;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(244, 114, 182, 0.15) 0%, rgba(7, 7, 9, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .top-ribbon {
+      background: linear-gradient(90deg, #db2777, #e11d48);
       color: #ffffff;
-      padding-bottom: 90px;
-    }
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 16px;
-    }
-    .top-bar {
-      text-align: center;
-      padding: 8px;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      background: linear-gradient(90deg, #ec4899, #f43f5e);
-      color: white;
-    }
-    .brand-header {
       text-align: center;
-      padding: 24px 12px 16px;
-      border-bottom: 1px solid #1f2937;
+      padding: 8px 12px;
     }
-    .monogram-badge {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 12px;
+
+    .shell {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 20px 16px;
+    }
+
+    /* Brand Header */
+    .brand-hero {
+      text-align: center;
+      padding: 24px 16px 20px;
+      background: radial-gradient(circle at center, rgba(28, 25, 33, 0.9) 0%, rgba(13, 13, 17, 0.6) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand-crest {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 14px;
       border-radius: 50%;
-      border: 2px solid #ec4899;
+      border: 2px solid var(--pink);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: rgba(236, 72, 153, 0.1);
-      box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+      background: radial-gradient(circle, rgba(244, 114, 182, 0.2) 0%, rgba(10, 10, 14, 0.9) 100%);
+      box-shadow: 0 0 24px var(--pink-glow);
+      position: relative;
     }
-    .monogram-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: #f472b6;
+
+    .brand-crest .crown {
+      font-size: 14px;
+      line-height: 1;
+      margin-bottom: 2px;
     }
-    .brand-title {
-      font-family: 'Playfair Display', serif;
+
+    .brand-crest .initials {
+      font-family: 'Cormorant Garamond', serif;
       font-size: 26px;
       font-weight: 700;
       color: #ffffff;
-      margin-bottom: 4px;
-    }
-    .brand-slogan {
-      font-size: 12px;
-      color: #f472b6;
       letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 10px;
+      line-height: 1;
     }
-    .hero-pitch {
-      background: #111827;
-      border: 1px solid #1f2937;
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .brand-subline {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--pink);
+      margin-bottom: 14px;
+    }
+
+    .brand-banner {
+      background: rgba(255, 255, 255, 0.04);
       border-radius: 12px;
-      padding: 14px;
+      padding: 10px 14px;
       font-size: 13px;
       color: #d1d5db;
-      line-height: 1.5;
+      border: 1px dashed rgba(244, 114, 182, 0.3);
     }
-    .hero-pitch strong {
-      color: #fb7185;
+
+    .brand-banner strong {
+      color: var(--rose);
     }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      color: #f472b6;
-      margin: 22px 0 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .category-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .category-card {
-      background: #111827;
-      border: 1px solid #1f2937;
-      border-radius: 12px;
-      padding: 14px 16px;
+
+    /* Section Headings */
+    .catalog-header {
+      margin: 28px 0 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      text-decoration: none;
-      color: white;
     }
-    .category-info {
+
+    .catalog-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .catalog-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Category Cards */
+    .catalog-grid {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 12px;
     }
-    .cat-icon {
-      font-size: 22px;
-      width: 40px;
-      height: 40px;
-      background: rgba(236, 72, 153, 0.12);
-      border-radius: 8px;
+
+    .product-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-row:active {
+      transform: scale(0.98);
+      border-color: var(--pink);
+    }
+
+    .product-lead {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .badge-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(244, 114, 182, 0.1);
+      border: 1px solid rgba(244, 114, 182, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
     }
-    .cat-name {
-      font-size: 15px;
+
+    .product-details h3 {
+      font-size: 16px;
       font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 2px;
     }
-    .cat-sub {
-      font-size: 11px;
-      color: #9ca3af;
+
+    .product-details p {
+      font-size: 12px;
+      color: var(--text-muted);
     }
-    .order-tag {
-      font-size: 11px;
+
+    .inquire-btn {
+      font-size: 12px;
       font-weight: 600;
-      color: #22c55e;
+      color: var(--green);
       background: rgba(34, 197, 94, 0.12);
-      padding: 5px 9px;
-      border-radius: 6px;
-      border: 1px solid rgba(34, 197, 94, 0.25);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 6px 12px;
+      border-radius: 8px;
+      white-space: nowrap;
     }
-    .features-grid {
+
+    /* Trust Grid */
+    .reasons-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 24px;
     }
-    .feature-item {
-      background: #111827;
-      border: 1px solid #1f2937;
-      border-radius: 10px;
-      padding: 12px;
+
+    .reason-box {
+      background: rgba(17, 17, 23, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      padding: 12px 10px;
       text-align: center;
     }
-    .feature-item span {
+
+    .reason-box .icon {
       font-size: 18px;
-      display: block;
       margin-bottom: 4px;
+      display: block;
     }
-    .feature-item p {
+
+    .reason-box .label {
       font-size: 11px;
       font-weight: 600;
       color: #e5e7eb;
     }
-    .contact-card {
-      background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(17, 24, 39, 0.95));
-      border: 1px solid rgba(236, 72, 153, 0.35);
-      border-radius: 14px;
-      padding: 16px;
-      margin-top: 20px;
+
+    /* WhatsApp Connect Card */
+    .vip-card {
+      background: radial-gradient(circle at top left, rgba(244, 114, 182, 0.15), rgba(16, 16, 22, 0.95));
+      border: 1px solid rgba(244, 114, 182, 0.35);
+      border-radius: 18px;
+      padding: 20px 16px;
+      margin-top: 24px;
       text-align: center;
     }
-    .contact-number {
-      font-size: 20px;
+
+    .vip-phone {
+      font-size: 24px;
       font-weight: 700;
+      letter-spacing: 1px;
       color: #ffffff;
-      margin: 8px 0;
-      letter-spacing: 0.5px;
+      margin: 8px 0 16px;
     }
-    .btn-group {
+
+    .action-links {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-top: 12px;
+      gap: 10px;
     }
-    .btn {
+
+    .btn-action {
       display: block;
-      padding: 12px;
-      border-radius: 8px;
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 13px;
       text-align: center;
     }
-    .btn-green {
-      background: #22c55e;
-      color: white;
+
+    .btn-action.primary {
+      background: var(--green);
+      color: #ffffff;
+      box-shadow: 0 4px 18px var(--green-glow);
     }
-    .btn-outline {
+
+    .btn-action.secondary {
       background: transparent;
-      border: 1px solid #f472b6;
-      color: #f472b6;
+      border: 1px solid var(--pink);
+      color: var(--pink);
     }
-    .footer-note {
+
+    .brand-footer {
       text-align: center;
       font-size: 11px;
       color: #6b7280;
-      margin-top: 20px;
+      margin-top: 24px;
+      letter-spacing: 0.5px;
     }
-    .bottom-bar {
+
+    /* Fixed Sticky Footer */
+    .sticky-order-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: #0b0c10;
-      border-top: 1px solid #1f2937;
+      background: rgba(7, 7, 9, 0.94);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding: 12px 16px;
-      z-index: 99;
+      backdrop-filter: blur(14px);
+      z-index: 100;
     }
-    .bottom-btn {
-      display: block;
+
+    .order-fast-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       max-width: 480px;
       margin: 0 auto;
-      background: #22c55e;
-      color: white;
-      text-align: center;
-      padding: 12px;
-      border-radius: 8px;
-      text-decoration: none;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 15px;
       font-weight: 700;
-      font-size: 14px;
+      padding: 13px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px var(--green-glow);
     }
   </style>
 </head>
 <body>
 
-  <div class="top-bar">
-    Fashion • Beauty • Lifestyle
-  </div>
+  <div class="ambient-glow"></div>
+  <div class="top-ribbon">Fashion • Beauty • Lifestyle</div>
 
-  <div class="container">
-    <header class="brand-header">
-      <div class="monogram-badge">
-        <span class="monogram-text">HAH</span>
+  <div class="shell">
+    <!-- Brand Crest & Header -->
+    <header class="brand-hero">
+      <div class="brand-crest">
+        <span class="crown">👑</span>
+        <span class="initials">HAH</span>
       </div>
-      <h1 class="brand-title">Happies Aesthetic Hub</h1>
-      <p class="brand-slogan">Look Good • Feel Good • Shop Happy[cite: 1]</p>
+      <h1 class="brand-name">Happies Aesthetic Hub</h1>
+      <p class="brand-subline">Look Good • Feel Good • Shop Happy</p>[cite: 1]
       
-      <div class="hero-pitch">
-        Your one-stop shop for <strong>premium and trendy products</strong> at wholesale prices![cite: 1]
+      <div class="brand-banner">
+        Your one-stop shop for <strong>premium & trendy products</strong> at wholesale prices![cite: 1]
       </div>
     </header>
 
-    <h2 class="section-title">
-      <span>🛍️</span> Our Products[cite: 1]
-    </h2>
+    <!-- Product Collection -->
+    <div class="catalog-header">
+      <h2 class="catalog-title">Our Collection</h2>[cite: 1]
+      <span class="catalog-subtitle">Tap to Order</span>
+    </div>
 
-    <div class="category-list">
-      <a href="https://wa.me/2349123268711?text=Hello,%20I%20am%20interested%20in%20your%20Perfumes%20catalog." class="category-card" target="_blank">
-        <div class="category-info">
-          <div class="cat-icon">🧴</div>
-          <div>
-            <div class="cat-name">Perfumes</div>
-            <div class="cat-sub">Designer & Oil Fragrances</div>
+    <div class="catalog-grid">
+      <a href="https://wa.me/2349123268711?text=Hello%20Happies%20Aesthetic%20Hub,%20I%20want%20to%20order%20from%20your%20Perfumes%20catalog." class="product-row" target="_blank">[cite: 1]
+        <div class="product-lead">
+          <div class="badge-icon">🧴</div>
+          <div class="product-details">
+            <h3>Perfumes</h3>[cite: 1]
+            <p>Designer scents & luxury fragrance oils</p>
           </div>
         </div>
-        <div class="order-tag">Inquire →</div>
+        <span class="inquire-btn">Order →</span>
       </a>
 
-      <a href="https://wa.me/2349123268711?text=Hello,%20I%20am%20interested%20in%20your%20Accessories%20catalog." class="category-card" target="_blank">
-        <div class="category-info">
-          <div class="cat-icon">🕶️</div>
-          <div>
-            <div class="cat-name">Accessories</div>
-            <div class="cat-sub">Bags, Shades & Essentials</div>
+      <a href="https://wa.me/2349123268711?text=Hello%20Happies%20Aesthetic%20Hub,%20I%20want%20to%20order%20from%20your%20Accessories%20catalog." class="product-row" target="_blank">[cite: 1]
+        <div class="product-lead">
+          <div class="badge-icon">🕶️</div>
+          <div class="product-details">
+            <h3>Accessories</h3>[cite: 1]
+            <p>Bags, shades, belts & luxury accents</p>
           </div>
         </div>
-        <div class="order-tag">Inquire →</div>
+        <span class="inquire-btn">Order →</span>
       </a>
 
-      <a href="https://wa.me/2349123268711?text=Hello,%20I%20am%20interested%20in%20your%20Clothes%20catalog." class="category-card" target="_blank">
-        <div class="category-info">
-          <div class="cat-icon">👕</div>
-          <div>
-            <div class="cat-name">Clothes</div>
-            <div class="cat-sub">Hoodies, Tees & Trousers</div>
+      <a href="https://wa.me/2349123268711?text=Hello%20Happies%20Aesthetic%20Hub,%20I%20want%20to%20order%20from%20your%20Clothes%20catalog." class="product-row" target="_blank">[cite: 1]
+        <div class="product-lead">
+          <div class="badge-icon">👕</div>
+          <div class="product-details">
+            <h3>Clothes</h3>[cite: 1]
+            <p>Classy streetwear, hoodies, tees & pants</p>
           </div>
         </div>
-        <div class="order-tag">Inquire →</div>
+        <span class="inquire-btn">Order →</span>
       </a>
 
-      <a href="https://wa.me/2349123268711?text=Hello,%20I%20am%20interested%20in%20your%20Shoes%20catalog%20(Loafers,%20Boots,%20etc)." class="category-card" target="_blank">
-        <div class="category-info">
-          <div class="cat-icon">👠</div>
-          <div>
-            <div class="cat-name">Shoes</div>
-            <div class="cat-sub">Loafers, Boots & More[cite: 1]</div>
+      <a href="https://wa.me/2349123268711?text=Hello%20Happies%20Aesthetic%20Hub,%20I%20want%20to%20order%20Shoes%20(Loafers,%20Boots,%20etc)." class="product-row" target="_blank">[cite: 1]
+        <div class="product-lead">
+          <div class="badge-icon">👞</div>
+          <div class="product-details">
+            <h3>Shoes</h3>[cite: 1]
+            <p>Loafers, Boots, Sneakers & more</p>[cite: 1]
           </div>
         </div>
-        <div class="order-tag">Inquire →</div>
+        <span class="inquire-btn">Order →</span>
       </a>
 
-      <a href="https://wa.me/2349123268711?text=Hello,%20I%20am%20interested%20in%20your%20Jewelries%20catalog." class="category-card" target="_blank">
-        <div class="category-info">
-          <div class="cat-icon">💎</div>
-          <div>
-            <div class="cat-name">Jewelries</div>
-            <div class="cat-sub">Chains, Watches & Bracelets</div>
+      <a href="https://wa.me/2349123268711?text=Hello%20Happies%20Aesthetic%20Hub,%20I%20want%20to%20order%20from%20your%20Jewelries%20catalog." class="product-row" target="_blank">[cite: 1]
+        <div class="product-lead">
+          <div class="badge-icon">💎</div>
+          <div class="product-details">
+            <h3>Jewelries</h3>[cite: 1]
+            <p>Premium wristwatches, chains & bracelets</p>
           </div>
         </div>
-        <div class="order-tag">Inquire →</div>
+        <span class="inquire-btn">Order →</span>
       </a>
     </div>
 
-    <h2 class="section-title">
-      <span>✨</span> Why Shop With Us
-    </h2>
-
-    <div class="features-grid">
-      <div class="feature-item">
-        <span>✅</span>
-        <p>High Quality Products[cite: 1]</p>
+    <!-- Guarantees -->
+    <div class="reasons-grid">
+      <div class="reason-box">
+        <span class="icon">✨</span>
+        <span class="label">High Quality Products</span>[cite: 1]
       </div>
-      <div class="feature-item">
-        <span>🏷️</span>
-        <p>Wholesale Prices[cite: 1]</p>
+      <div class="reason-box">
+        <span class="icon">🏷️</span>
+        <span class="label">Wholesale Prices</span>[cite: 1]
       </div>
-      <div class="feature-item">
-        <span>🛒</span>
-        <p>Trendy & Classy Collection[cite: 1]</p>
+      <div class="reason-box">
+        <span class="icon">🛍️</span>
+        <span class="label">Trendy Collection</span>[cite: 1]
       </div>
-      <div class="feature-item">
-        <span>🤝</span>
-        <p>Reliable & Affordable[cite: 1]</p>
+      <div class="reason-box">
+        <span class="icon">🤝</span>
+        <span class="label">Reliable & Affordable</span>[cite: 1]
       </div>
     </div>
 
-    <div class="contact-card">
-      <div style="font-size: 13px; color: #f472b6; font-weight: 600;">Upgrade your style with[cite: 1]</div>
-      <div class="contact-number">09123268711[cite: 1]</div>
+    <!-- Direct Contact Card -->
+    <div class="vip-card">
+      <div style="font-size: 13px; color: var(--pink); font-weight: 600;">Upgrade your style with</div>[cite: 1]
+      <div class="vip-phone">09123268711</div>[cite: 1]
       
-      <div class="btn-group">
-        <a href="https://wa.me/2349123268711?text=Hello,%20I%20want%20to%20shop%20from%20Happies%20Aesthetic%20Hub" class="btn btn-green" target="_blank">
-          Chat / Shop Now via WhatsApp[cite: 1]
+      <div class="action-links">
+        <a href="https://wa.me/2349123268711?text=Hello%20Happies%20Aesthetic%20Hub,%20I%20want%20to%20shop!" class="btn-action primary" target="_blank">[cite: 1]
+          Chat Directly on WhatsApp[cite: 1]
         </a>
-        <a href="https://chat.whatsapp.com/JCh155YriNj6dLYRiZRtkj" class="btn btn-outline" target="_blank">
-          Join WhatsApp Group
+        <a href="https://chat.whatsapp.com/JCh155YriNj6dLYRiZRtkj" class="btn-action secondary" target="_blank">
+          Join VIP Community Group
         </a>
       </div>
     </div>
 
-    <div class="footer-note">
-      Fashion For Every You[cite: 1]<br>
+    <footer class="brand-footer">
+      Fashion For Every You • Nationwide Delivery<br>[cite: 1]
       © Happies Aesthetic Hub. All Rights Reserved.
-    </div>
+    </footer>
   </div>
 
-  <div class="bottom-bar">
-    <a href="https://wa.me/2349123268711?text=Hello,%20I%20want%20to%20order%20from%20Happies%20Aesthetic%20Hub" class="bottom-btn" target="_blank">
-      Order Now on WhatsApp[cite: 1]
+  <!-- Sticky Bottom Order Button -->
+  <div class="sticky-order-bar">
+    <a href="https://wa.me/2349123268711?text=Hello%20Happies%20Aesthetic%20Hub,%20I%20am%20ready%20to%20order!" class="order-fast-btn" target="_blank">[cite: 1]
+      <span>💬</span> Order Now on WhatsApp[cite: 1]
     </a>
   </div>
 
 </body>
-  </html>
+</html>
