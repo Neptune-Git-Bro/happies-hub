@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happies Aesthetic Hub | Look Good, Feel Good, Shop Happy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0c10;
+      color: #ffffff;
+      padding-bottom: 90px;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .top-bar {
+      text-align: center;
+      padding: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ec4899, #f43f5e);
+      color: white;
+    }
+    .brand-header {
+      text-align: center;
+      padding: 24px 12px 16px;
+      border-bottom: 1px solid #1f2937;
+    }
+    .monogram-badge {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      border: 2px solid #ec4899;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(236, 72, 153, 0.1);
+      box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+    }
+    .monogram-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #f472b6;
+    }
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .brand-slogan {
+      font-size: 12px;
+      color: #f472b6;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .hero-pitch {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 13px;
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+    .hero-pitch strong {
+      color: #fb7185;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: #f472b6;
+      margin: 22px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .category-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .category-card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: white;
+    }
+    .category-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .cat-icon {
+      font-size: 22px;
+      width: 40px;
+      height: 40px;
+      background: rgba(236, 72, 153, 0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cat-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .cat-sub {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .order-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: #22c55e;
+      background: rgba(34, 197, 94, 0.12);
+      padding: 5px 9px;
+      border-radius: 6px;
+      border: 1px solid rgba(34, 197, 94, 0.25);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .feature-item {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+    .feature-item span {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .feature-item p {
+      font-size: 11px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+    .contact-card {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(17, 24, 39, 0.95));
+      border: 1px solid rgba(236, 72, 153, 0.35);
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .contact-number {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 8px 0;
+      letter-spacing: 0.5px;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .btn {
+      display: block;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      text-align: center;
+    }
+    .btn-green {
+      background: #22c55e;
+      color: white;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #f472b6;
+      color: #f472b6;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 20px;
+    }
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #0b0c10;
+      border-top: 1px solid #1f2937;
+      padding: 12px 16px;
+      z-index: 99;
+    }
+    .bottom-btn {
+      display: block;
+      max-width: 480px;
+      margin: 0 auto;
+      background: #22c55e;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    Fashion • Beauty • Lifestyle
+  </div>
+
+  <div class="container">
+    <header class="brand-header">
+      <div class="monogram-badge">
+        <span class="monogram-text">HAH</span>
+      </div>
+      <h1 class="brand-title">Happies Aesthetic Hub</h1>
+      <p class="brand-slogan">Look Good • Feel Good • Shop Happy[cite: 1]</p>
+      
+      <div class="hero-pitch">
+        Your one-stop shop for <strong>premium and trendy products</strong> at wholesale prices![cite: 1]
+      </div>
+    </header>
+
+    <h2 class="section-title">
+      <span>🛍️</span> Our Products[cite: 1]
+    </h2>
+
+    <div class="category-list">
+      <a href="https://wa.me/2349123268711?text=Hello,%20I%20am%20interested%20in%20your%20Perfumes%20catalog." class="category-card" target="_blank">
+        <div class="category-info">
+          <div class="cat-icon">🧴</div>
+          <div>
+            <div class="cat-name">Perfumes</div>
+            <div class="cat-sub">Designer & Oil Fragrances</div>
+          </div>
+        </div>
+        <div class="order-tag">Inquire →</div>
+      </a>
+
+      <a href="https://wa.me/2349123268711?text=Hello,%20I%20am%20interested%20in%20your%20Accessories%20catalog." class="category-card" target="_blank">
+        <div class="category-info">
+          <div class="cat-icon">🕶️</div>
+          <div>
+            <div class="cat-name">Accessories</div>
+            <div class="cat-sub">Bags, Shades & Essentials</div>
+          </div>
+        </div>
+        <div class="order-tag">Inquire →</div>
+      </a>
+
+      <a href="https://wa.me/2349123268711?text=Hello,%20I%20am%20interested%20in%20your%20Clothes%20catalog." class="category-card" target="_blank">
+        <div class="category-info">
+          <div class="cat-icon">👕</div>
+          <div>
+            <div class="cat-name">Clothes</div>
+            <div class="cat-sub">Hoodies, Tees & Trousers</div>
+          </div>
+        </div>
+        <div class="order-tag">Inquire →</div>
+      </a>
+
+      <a href="https://wa.me/2349123268711?text=Hello,%20I%20am%20interested%20in%20your%20Shoes%20catalog%20(Loafers,%20Boots,%20etc)." class="category-card" target="_blank">
+        <div class="category-info">
+          <div class="cat-icon">👠</div>
+          <div>
+            <div class="cat-name">Shoes</div>
+            <div class="cat-sub">Loafers, Boots & More[cite: 1]</div>
+          </div>
+        </div>
+        <div class="order-tag">Inquire →</div>
+      </a>
+
+      <a href="https://wa.me/2349123268711?text=Hello,%20I%20am%20interested%20in%20your%20Jewelries%20catalog." class="category-card" target="_blank">
+        <div class="category-info">
+          <div class="cat-icon">💎</div>
+          <div>
+            <div class="cat-name">Jewelries</div>
+            <div class="cat-sub">Chains, Watches & Bracelets</div>
+          </div>
+        </div>
+        <div class="order-tag">Inquire →</div>
+      </a>
+    </div>
+
+    <h2 class="section-title">
+      <span>✨</span> Why Shop With Us
+    </h2>
+
+    <div class="features-grid">
+      <div class="feature-item">
+        <span>✅</span>
+        <p>High Quality Products[cite: 1]</p>
+      </div>
+      <div class="feature-item">
+        <span>🏷️</span>
+        <p>Wholesale Prices[cite: 1]</p>
+      </div>
+      <div class="feature-item">
+        <span>🛒</span>
+        <p>Trendy & Classy Collection[cite: 1]</p>
+      </div>
+      <div class="feature-item">
+        <span>🤝</span>
+        <p>Reliable & Affordable[cite: 1]</p>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div style="font-size: 13px; color: #f472b6; font-weight: 600;">Upgrade your style with[cite: 1]</div>
+      <div class="contact-number">09123268711[cite: 1]</div>
+      
+      <div class="btn-group">
+        <a href="https://wa.me/2349123268711?text=Hello,%20I%20want%20to%20shop%20from%20Happies%20Aesthetic%20Hub" class="btn btn-green" target="_blank">
+          Chat / Shop Now via WhatsApp[cite: 1]
+        </a>
+        <a href="https://chat.whatsapp.com/JCh155YriNj6dLYRiZRtkj" class="btn btn-outline" target="_blank">
+          Join WhatsApp Group
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Fashion For Every You[cite: 1]<br>
+      © Happies Aesthetic Hub. All Rights Reserved.
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <a href="https://wa.me/2349123268711?text=Hello,%20I%20want%20to%20order%20from%20Happies%20Aesthetic%20Hub" class="bottom-btn" target="_blank">
+      Order Now on WhatsApp[cite: 1]
+    </a>
+  </div>
+
+</body>
+  </html>
